@@ -1076,8 +1076,9 @@ footer {
 #intro-logo {
   display: flex;
   align-items: center;
-  gap: 0px;
+  gap: 0;
 }
+
 
 #intro-icon {
   height: 64px;
@@ -1086,6 +1087,7 @@ footer {
   /* Paused until JS measures words width and sets --intro-offset */
   animation: introIconSequence 1.8s ease forwards;
   animation-play-state: paused;
+  /* gap: -20px; */
 }
 
 /*
@@ -1111,6 +1113,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-left: -10px;
 }
 
 .intro-word {

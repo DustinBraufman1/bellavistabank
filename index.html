@@ -532,7 +532,7 @@
       // how far right to offset the icon so it appears at the screen center.
       // The offset = half of (words width + gap) shifts the icon right by
       // exactly the amount needed for the flex group to be centered on screen.
-      var gap       = 0; // must match CSS #intro-logo gap
+      var gap       = -10; // matches #intro-words margin-left: -10px
       var wordsW    = words.offsetWidth;
       var offset    = (wordsW + gap) / 2;
 
