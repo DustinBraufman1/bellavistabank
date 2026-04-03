@@ -176,13 +176,91 @@
   </div>
 </section>
 
+<!-- STUDENT SECTION -->
+<section style="background:var(--black);color:var(--white);padding:100px 48px;">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+      <div>
+        <div class="section-eyebrow" style="color:var(--red-light)">Student Banking</div>
+        <h2 style="color:var(--white)">Banking that gets<br>being <em>broke.</em></h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.6)">No fees, no minimums, no stress. Bella Vista Student gives you all the tools to manage your money between paychecks, split rent with roommates, and actually start saving — even on a student budget.</p>
+        <ul class="check-list">
+          <li>$0/mo forever — no graduation catch</li>
+          <li>Split bills instantly with friends</li>
+          <li>Round-up savings on every purchase</li>
+          <li>Early paycheck access (up to 2 days)</li>
+          <li>1% cash back on dining & subscriptions</li>
+          <li>Free international spending for study abroad</li>
+        </ul>
+        <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;">
+          <a href="#plans" class="btn btn-primary btn-lg">Get Student — free</a>
+          <a href="#plans" class="btn btn-ghost btn-lg">Compare all plans</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px;">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:18px;">🎓</div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--white);">Student Checking</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);">$0/mo · No minimums</div>
+            </div>
+          </div>
+          <div style="font-size:32px;font-weight:800;color:var(--white);letter-spacing:-0.03em;margin-bottom:4px;">$847.20</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:20px;">Available balance</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 16px;">
+              <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:16px;">🍕</span><span style="font-size:13px;font-weight:600;color:var(--white);">Domino's</span></div>
+              <span style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.7);">−$14.99</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 16px;">
+              <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:16px;">💼</span><span style="font-size:13px;font-weight:600;color:var(--white);">Part-time Job</span></div>
+              <span style="font-size:13px;font-weight:700;color:#4ade80;">+$320.00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 16px;">
+              <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:16px;">📚</span><span style="font-size:13px;font-weight:600;color:var(--white);">Campus Bookstore</span></div>
+              <span style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.7);">−$62.40</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:20px;">
+            <div style="font-size:22px;font-weight:800;color:var(--white);letter-spacing:-0.02em;">$0</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;">Monthly fees, ever</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:20px;">
+            <div style="font-size:22px;font-weight:800;color:var(--white);letter-spacing:-0.02em;">2 days</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;">Early paycheck access</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PLANS -->
 <section class="pricing" id="plans">
   <div class="section-inner">
     <div class="section-eyebrow">Personal Plans</div>
     <h2>Pick the plan<br>that fits <em>your life.</em></h2>
     <p class="section-sub">All plans include FDIC insurance, a debit card, and our full-featured mobile app.</p>
-    <div class="pricing-grid">
+    <div class="pricing-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="pricing-card" style="border-color:var(--red);background:linear-gradient(160deg,#fff8f8 0%,var(--white) 60%);">
+        <div class="pricing-badge" style="background:var(--black);">For students</div>
+        <div class="pricing-plan">Student</div>
+        <div class="pricing-price"><sup>$</sup>0<sub>/mo</sub></div>
+        <p class="pricing-desc">Built for campus life. Free forever with your .edu email.</p>
+        <ul class="pricing-features">
+          <li>Free checking account</li>
+          <li>Visa debit card</li>
+          <li>Early paycheck (2 days early)</li>
+          <li>Bill splitting with friends</li>
+          <li>1% cash back on dining & streaming</li>
+          <li>Free international spending</li>
+          <li>Round-up savings vault</li>
+        </ul>
+        <a href="#" class="btn btn-primary btn-lg" style="width:100%">Get Student free</a>
+      </div>
       <div class="pricing-card">
         <div class="pricing-plan">Essential</div>
         <div class="pricing-price"><sup>$</sup>0<sub>/mo</sub></div>
@@ -238,6 +316,10 @@
     <div class="section-eyebrow">FAQ</div>
     <h2>Common <em>questions.</em></h2>
     <div class="faq-list" style="text-align:left">
+      <div class="faq-item">
+        <button class="faq-q">Who qualifies for the Student plan?</button>
+        <p class="faq-a">Any student with a valid .edu email address qualifies. There's no minimum age — high school and college students are both welcome. The Student plan stays free for as long as you're enrolled, with no automatic upgrades when you graduate.</p>
+      </div>
       <div class="faq-item">
         <button class="faq-q">Is my money FDIC insured?</button>
         <p class="faq-a">Yes. All deposits at Bella Vista Bank are FDIC insured up to $250,000 per depositor. Your money is safe.</p>

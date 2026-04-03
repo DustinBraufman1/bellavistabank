@@ -548,10 +548,10 @@
       });
 
       // After icon finishes sliding + rotating (~90% of 1.8s ≈ 1620ms),
-      // slide in the words: Bank first, then Vista, then Bella.
+      // slide in the words: Bella first, then Vista, then Bank.
       var wordBase = 1700; // ms — just after rotation completes
       setTimeout(function () {
-        document.getElementById('word-bank').style.animation =
+        document.getElementById('word-bella').style.animation =
           'introWordSlide 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) forwards';
       }, wordBase);
       setTimeout(function () {
@@ -559,7 +559,7 @@
           'introWordSlide 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) forwards';
       }, wordBase + 260);
       setTimeout(function () {
-        document.getElementById('word-bella').style.animation =
+        document.getElementById('word-bank').style.animation =
           'introWordSlide 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) forwards';
       }, wordBase + 520);
 
