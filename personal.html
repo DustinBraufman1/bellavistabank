@@ -6,6 +6,7 @@
   <title>Personal Banking — Bella Vista Bank</title>
   <link rel="stylesheet" href="https://use.typekit.net/gnj4rtm.css" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
@@ -28,15 +29,20 @@
 </nav>
 
 <!-- HERO -->
-<section class="page-hero">
-  <div class="hero-bg-shape"></div>
-  <div class="page-hero-inner">
-    <div class="hero-eyebrow"><span></span> Personal Banking</div>
-    <h1>Your money,<br><em>your rules.</em></h1>
-    <p class="hero-sub">A checking account, high-yield savings, and a smart card — all in one app. No fees, no minimums, no drama.</p>
-    <div class="hero-actions" style="margin-top:40px">
-      <a href="#" class="btn btn-primary btn-lg">Open free account</a>
-      <a href="#plans" class="btn btn-ghost btn-lg">Compare plans</a>
+<section class="page-hero page-hero--split">
+  <div class="page-hero-image-bg">
+    <img src="images/AdobeStock_538858102.jpeg" alt="" />
+    <div class="page-hero-gradient"></div>
+  </div>
+  <div class="page-hero-inner page-hero-inner--split">
+    <div class="page-hero-content">
+      <div class="hero-eyebrow"><span></span> Personal Banking</div>
+      <h1>Your money,<br><em>your rules.</em></h1>
+      <p class="hero-sub">A checking account, high-yield savings, and a smart card — all in one app. No fees, no minimums, no drama.</p>
+      <div class="hero-actions" style="margin-top:40px">
+        <a href="#" class="btn btn-primary btn-lg">Open free account</a>
+        <a href="#plans" class="btn btn-ghost btn-lg">Compare plans</a>
+      </div>
     </div>
   </div>
 </section>
@@ -72,11 +78,11 @@
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div style="background:white;border-radius:14px;padding:20px;text-align:center">
-            <div style="font-size:22px;margin-bottom:6px">💸</div>
+            <div style="font-size:22px;margin-bottom:6px"><i class="fa-solid fa-paper-plane" style="color:var(--red)"></i></div>
             <div style="font-size:13px;font-weight:700;color:var(--black)">Send</div>
           </div>
           <div style="background:white;border-radius:14px;padding:20px;text-align:center">
-            <div style="font-size:22px;margin-bottom:6px">⬇️</div>
+            <div style="font-size:22px;margin-bottom:6px"><i class="fa-solid fa-arrow-down" style="color:var(--red)"></i></div>
             <div style="font-size:13px;font-weight:700;color:var(--black)">Receive</div>
           </div>
         </div>
@@ -143,32 +149,32 @@
     </div>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">🌎</div>
+        <div class="feature-icon"><i class="fa-solid fa-globe"></i></div>
         <h3>Zero FX fees</h3>
         <p>Spend anywhere in 180+ countries at the real exchange rate. No markups, no surprises.</p>
       </div>
       <div class="feature-card dark">
-        <div class="feature-icon">🔒</div>
+        <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
         <h3>Instant freeze</h3>
         <p>Lost your card? Freeze it instantly from the app. Unfreeze just as fast when you find it.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🏧</div>
+        <div class="feature-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
         <h3>55K free ATMs</h3>
         <p>Access 55,000+ ATMs nationwide with no fees. Plus get reimbursed for out-of-network ATMs on Plus.</p>
       </div>
       <div class="feature-card red">
-        <div class="feature-icon">💰</div>
+        <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
         <h3>Cash back</h3>
         <p>Earn up to 2% cash back on all purchases with a Plus plan. Automatically credited monthly.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">📳</div>
+        <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
         <h3>Virtual cards</h3>
         <p>Create virtual card numbers for online shopping. Protect your real details every time.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🔔</div>
+        <div class="feature-icon"><i class="fa-solid fa-bell"></i></div>
         <h3>Instant alerts</h3>
         <p>Get notified the moment your card is used. Know exactly where your money is going, always.</p>
       </div>
@@ -200,7 +206,7 @@
       <div style="display:flex;flex-direction:column;gap:16px;">
         <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px;">
           <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
-            <div style="width:42px;height:42px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:18px;">🎓</div>
+            <div style="width:42px;height:42px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:18px;"><i class="fa-solid fa-graduation-cap" style="color:white"></i></div>
             <div>
               <div style="font-size:14px;font-weight:700;color:var(--white);">Student Checking</div>
               <div style="font-size:12px;color:rgba(255,255,255,0.4);">$0/mo · No minimums</div>
@@ -210,15 +216,15 @@
           <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:20px;">Available balance</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 16px;">
-              <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:16px;">🍕</span><span style="font-size:13px;font-weight:600;color:var(--white);">Domino's</span></div>
+              <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:16px;color:var(--red)"><i class="fa-solid fa-pizza-slice"></i></span><span style="font-size:13px;font-weight:600;color:var(--white);">Domino's</span></div>
               <span style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.7);">−$14.99</span>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 16px;">
-              <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:16px;">💼</span><span style="font-size:13px;font-weight:600;color:var(--white);">Part-time Job</span></div>
+              <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:16px;color:var(--red)"><i class="fa-solid fa-briefcase"></i></span><span style="font-size:13px;font-weight:600;color:var(--white);">Part-time Job</span></div>
               <span style="font-size:13px;font-weight:700;color:#4ade80;">+$320.00</span>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 16px;">
-              <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:16px;">📚</span><span style="font-size:13px;font-weight:600;color:var(--white);">Campus Bookstore</span></div>
+              <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:16px;color:var(--red)"><i class="fa-solid fa-book"></i></span><span style="font-size:13px;font-weight:600;color:var(--white);">Campus Bookstore</span></div>
               <span style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.7);">−$62.40</span>
             </div>
           </div>

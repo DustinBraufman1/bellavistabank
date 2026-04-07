@@ -902,6 +902,54 @@ footer {
 .page-hero h1 { max-width: 700px; }
 .page-hero .hero-sub { max-width: 560px; }
 
+/* Split hero layout (personal page) */
+.page-hero--split {
+  min-height: 80vh;
+  padding: 0 48px;
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.page-hero-image-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 42%;
+  z-index: 0;
+}
+
+.page-hero-image-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.page-hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.6) 8%, rgba(255,255,255,0.2) 16%, rgba(255,255,255,0) 24%);
+}
+
+.page-hero-inner--split {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.page-hero-content { padding: 100px 0 80px; max-width: 540px; }
+
+.page-hero--split h1 { max-width: 100%; }
+.page-hero--split .hero-sub { max-width: 100%; }
+
 /* Keep h1 white inside sections that stay dark */
 .split h1 { color: var(--white); }
 
@@ -1149,7 +1197,19 @@ footer {
   .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
   .pricing-card.featured { transform: none; }
+  .page-hero--split { padding: 0 24px; min-height: 60vh; }
+  .page-hero-inner--split { min-height: 60vh; }
+  .page-hero-gradient { background: linear-gradient(to right, #ffffff 50%, rgba(255,255,255,0.6) 75%, rgba(255,255,255,0) 100%); }
 }
+
+/* ─── FONT AWESOME ICON STYLING ─── */
+.feature-icon i { font-size: 22px; color: var(--red); }
+.feature-card.dark .feature-icon i { color: rgba(255,255,255,0.9); }
+.feature-card.red .feature-icon i { color: rgba(255,255,255,0.9); }
+.tab-feature-icon i { font-size: 20px; color: var(--red); }
+.txn-icon i { font-size: 16px; color: var(--red); }
+.badge-icon i { font-size: 16px; color: var(--white); }
+.app-action-btn i { font-size: 13px; color: rgba(255,255,255,0.8); }
 
 @media (max-width: 640px) {
   nav { padding: 0 16px; }
