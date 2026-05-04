@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
-<body>
+<body class="fade-in">
 
 <!-- NAV -->
 <nav>
@@ -24,7 +24,7 @@
   </ul>
   <div class="nav-cta">
     <a href="#" class="btn btn-ghost">Log in</a>
-    <a href="#" class="btn btn-primary">Open account</a>
+    <a href="#" class="btn btn-primary" onclick="event.preventDefault();acOpen()">Open account</a>
   </div>
 </nav>
 
@@ -40,7 +40,7 @@
       <h1>Your money,<br><em>your rules.</em></h1>
       <p class="hero-sub">A checking account, high-yield savings, and a smart card — all in one app. No fees, no minimums, no drama.</p>
       <div class="hero-actions" style="margin-top:40px">
-        <a href="#" class="btn btn-primary btn-lg">Open free account</a>
+        <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault();acOpen()">Open free account</a>
         <a href="#plans" class="btn btn-ghost btn-lg">Compare plans</a>
       </div>
     </div>
@@ -62,7 +62,7 @@
           <li style="color:var(--black)">55,000+ fee-free ATMs nationwide</li>
           <li style="color:var(--black)">Real-time transaction alerts</li>
         </ul>
-        <a href="#" class="btn btn-primary btn-lg" style="margin-top:8px">Open checking →</a>
+        <a href="#" class="btn btn-primary btn-lg" style="margin-top:8px" onclick="event.preventDefault();acOpen()">Open checking →</a>
       </div>
       <div style="background:var(--gray);border-radius:24px;padding:48px;display:flex;flex-direction:column;gap:20px;">
         <div style="background:linear-gradient(135deg,#e83636,#c52020);border-radius:18px;padding:32px;color:white">
@@ -133,7 +133,7 @@
           <li>4.8% APY on all vault balances</li>
           <li>Withdraw anytime, instantly</li>
         </ul>
-        <a href="#" class="btn btn-primary btn-lg" style="margin-top:8px">Start saving →</a>
+        <a href="#" class="btn btn-primary btn-lg" style="margin-top:8px" onclick="event.preventDefault();acOpen()">Start saving →</a>
       </div>
     </div>
   </div>
@@ -199,7 +199,7 @@
           <li>Free international spending for study abroad</li>
         </ul>
         <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;">
-          <a href="#plans" class="btn btn-primary btn-lg">Get Student — free</a>
+          <a href="#plans" class="btn btn-primary btn-lg" onclick="event.preventDefault();acOpen()">Get Student — free</a>
           <a href="#plans" class="btn btn-ghost btn-lg">Compare all plans</a>
         </div>
       </div>
@@ -265,7 +265,7 @@
           <li>Free international spending</li>
           <li>Round-up savings vault</li>
         </ul>
-        <a href="#" class="btn btn-primary btn-lg" style="width:100%">Get Student free</a>
+        <a href="#" class="btn btn-outline-dark btn-lg" style="width:100%" onclick="event.preventDefault();acOpen()">Get Student free</a>
       </div>
       <div class="pricing-card">
         <div class="pricing-badge pricing-badge--empty"></div>
@@ -280,7 +280,7 @@
           <li>Basic savings vault (2.0% APY)</li>
           <li>55K fee-free ATMs</li>
         </ul>
-        <a href="#" class="btn btn-outline-dark btn-lg" style="width:100%">Open free account</a>
+        <a href="#" class="btn btn-outline-dark btn-lg" style="width:100%" onclick="event.preventDefault();acOpen()">Open free account</a>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-badge">Most popular</div>
@@ -296,7 +296,7 @@
           <li>Priority support</li>
           <li>Advanced spending analytics</li>
         </ul>
-        <a href="#" class="btn btn-primary btn-lg" style="width:100%">Get Plus</a>
+        <a href="#" class="btn btn-primary btn-lg" style="width:100%" onclick="event.preventDefault();acOpen()">Get Plus</a>
       </div>
       <div class="pricing-card">
         <div class="pricing-badge pricing-badge--empty"></div>
@@ -312,7 +312,7 @@
           <li>Early paycheck (2 days early)</li>
           <li>Metal Visa card</li>
         </ul>
-        <a href="#" class="btn btn-outline-dark btn-lg" style="width:100%">Get Premium</a>
+        <a href="#" class="btn btn-outline-dark btn-lg" style="width:100%" onclick="event.preventDefault();acOpen()">Get Premium</a>
       </div>
     </div>
   </div>
@@ -358,7 +358,7 @@
     <h2>Ready to make<br>the switch?</h2>
     <p>Join 250,000+ people who've upgraded to Bella Vista Bank.</p>
     <div class="cta-actions">
-      <a href="#" class="btn btn-white btn-xl">Open free account</a>
+      <a href="#" class="btn btn-white btn-xl" onclick="event.preventDefault();acOpen()">Open free account</a>
       <a href="index.html#pricing" class="btn btn-outline-white btn-xl">Compare plans</a>
     </div>
   </div>
@@ -417,12 +417,12 @@
 <div id="account-modal" class="ac-overlay" style="display:none">
   <div class="ac-modal">
 
-    <!-- Close -->
-    <button class="ac-close" onclick="acClose()"><i class="fa-solid fa-xmark"></i></button>
-
-    <!-- Progress bar -->
-    <div class="ac-progress">
-      <div class="ac-progress-bar" id="ac-progress-bar"></div>
+    <!-- Header: progress + close -->
+    <div class="ac-header">
+      <div class="ac-progress">
+        <div class="ac-progress-bar" id="ac-progress-bar"></div>
+      </div>
+      <button class="ac-close" onclick="acClose()"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
     <!-- STEP 1: Email -->
@@ -460,7 +460,7 @@
       </div>
       <div class="ac-field">
         <label>Date of birth</label>
-        <input type="text" placeholder="MM / DD / YYYY" />
+        <input type="text" id="ac-dob" placeholder="MM / DD / YYYY" maxlength="14" inputmode="numeric" />
       </div>
       <button class="ac-btn-primary" onclick="acNext(3)">Continue <i class="fa-solid fa-arrow-right"></i></button>
       <button class="ac-btn-back" onclick="acNext(1)"><i class="fa-solid fa-arrow-left"></i> Back</button>
@@ -484,9 +484,24 @@
           <label>City</label>
           <input type="text" placeholder="San Francisco" />
         </div>
-        <div class="ac-field" style="max-width:100px">
+        <div class="ac-field" style="max-width:130px">
           <label>State</label>
-          <input type="text" placeholder="CA" />
+          <select class="ac-select">
+            <option value="" disabled selected>State</option>
+            <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
+            <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
+            <option>FL</option><option>GA</option><option>HI</option><option>ID</option>
+            <option>IL</option><option>IN</option><option>IA</option><option>KS</option>
+            <option>KY</option><option>LA</option><option>ME</option><option>MD</option>
+            <option>MA</option><option>MI</option><option>MN</option><option>MS</option>
+            <option>MO</option><option>MT</option><option>NE</option><option>NV</option>
+            <option>NH</option><option>NJ</option><option>NM</option><option>NY</option>
+            <option>NC</option><option>ND</option><option>OH</option><option>OK</option>
+            <option>OR</option><option>PA</option><option>RI</option><option>SC</option>
+            <option>SD</option><option>TN</option><option>TX</option><option>UT</option>
+            <option>VT</option><option>VA</option><option>WA</option><option>WV</option>
+            <option>WI</option><option>WY</option>
+          </select>
         </div>
         <div class="ac-field" style="max-width:120px">
           <label>ZIP</label>
@@ -605,7 +620,7 @@
         <div class="ac-success-row"><i class="fa-solid fa-mobile-screen-button"></i> Download the app to get started</div>
         <div class="ac-success-row"><i class="fa-solid fa-shield-halved"></i> FDIC insured up to $250,000</div>
       </div>
-      <button class="ac-btn-primary" onclick="acClose()">Go to my account</button>
+      <button class="ac-btn-primary" onclick="window.location.href='account.html'">Go to my account</button>
     </div>
 
   </div>
@@ -654,21 +669,21 @@
     el.classList.add('ac-fund-selected');
   }
 
-  // Wire up all CTA buttons on the page
-  document.querySelectorAll('a[href="#"]').forEach(a => {
-    const text = a.textContent.trim().toLowerCase();
-    if (text.includes('open') || text.includes('get started') || text.includes('get student') || text.includes('get plus') || text.includes('get premium')) {
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        acOpen();
-      });
-    }
-  });
-
   // Close on backdrop click
   document.getElementById('account-modal').addEventListener('click', function(e) {
     if (e.target === this) acClose();
   });
+
+  // DOB auto-format: MM / DD / YYYY
+  document.getElementById('ac-dob').addEventListener('input', function(e) {
+    let val = this.value.replace(/\D/g, '');
+    let out = '';
+    if (val.length > 0) out = val.substring(0, 2);
+    if (val.length >= 3) out += ' / ' + val.substring(2, 4);
+    if (val.length >= 5) out += ' / ' + val.substring(4, 8);
+    this.value = out;
+  });
+
 </script>
 
 </body>

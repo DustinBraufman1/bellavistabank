@@ -38,7 +38,7 @@
   </ul>
   <div class="nav-cta">
     <a href="#" class="btn btn-ghost">Log in</a>
-    <a href="#" class="btn btn-primary">Open account</a>
+    <a href="#" class="btn btn-primary" onclick="event.preventDefault();acOpen()">Open account</a>
   </div>
 </nav>
 
@@ -52,7 +52,7 @@
       <h1>Banking built for<br><em>real life.</em></h1>
       <p class="hero-sub">Bella Vista Bank gives you powerful tools to spend, save, and grow; with zero hidden fees and instant access to your money.</p>
       <div class="hero-actions">
-        <a href="personal.html" class="btn btn-primary btn-lg">Get started free</a>
+        <a href="personal.html" class="btn btn-primary btn-lg" onclick="event.preventDefault();acOpen()">Get started free</a>
         <a href="#features" class="btn btn-ghost btn-lg">See how it works</a>
       </div>
       <div class="hero-trust">
@@ -159,7 +159,7 @@
         <li>Same-day ACH and wire transfers</li>
         <li>99.99% uptime, every year</li>
       </ul>
-      <a href="personal.html" class="btn btn-primary btn-lg">Open an account</a>
+      <a href="personal.html" class="btn btn-primary btn-lg" onclick="event.preventDefault();acOpen()">Open an account</a>
     </div>
     <div class="split-visual">
       <div class="stat-row">
@@ -363,7 +363,7 @@
           <li>Bill pay & transfers</li>
           <li>Basic spending insights</li>
         </ul>
-        <a href="personal.html" class="btn btn-outline-dark btn-lg" style="width:100%">Get started</a>
+        <a href="personal.html" class="btn btn-outline-dark btn-lg" style="width:100%" onclick="event.preventDefault();acOpen()">Get started</a>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-badge">Most popular</div>
@@ -378,7 +378,7 @@
           <li>Advanced analytics</li>
           <li>Cash back on purchases</li>
         </ul>
-        <a href="personal.html" class="btn btn-primary btn-lg" style="width:100%">Get Plus</a>
+        <a href="personal.html" class="btn btn-primary btn-lg" style="width:100%" onclick="event.preventDefault();acOpen()">Get Plus</a>
       </div>
       <div class="pricing-card">
         <div class="pricing-plan">Business</div>
@@ -405,7 +405,7 @@
     <h2>Open your account<br>in 3 minutes.</h2>
     <p>No minimum deposit. No paperwork. Just a great bank account, instantly.</p>
     <div class="cta-actions">
-      <a href="personal.html" class="btn btn-white btn-xl">Get started free</a>
+      <a href="personal.html" class="btn btn-white btn-xl" onclick="event.preventDefault();acOpen()">Get started free</a>
       <a href="business.html" class="btn btn-outline-white btn-xl">Business banking</a>
     </div>
   </div>
@@ -528,5 +528,208 @@
     }
   })();
 </script>
+
+<!-- ACCOUNT CREATION MODAL -->
+<div id="account-modal" class="ac-overlay" style="display:none">
+  <div class="ac-modal">
+    <div class="ac-header">
+      <div class="ac-progress">
+        <div class="ac-progress-bar" id="ac-progress-bar"></div>
+      </div>
+      <button class="ac-close" onclick="acClose()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="ac-step" id="ac-step-1">
+      <div class="ac-logo"><img src="images/bellavistalogo.png" alt="Bella Vista Bank" style="height:180px;display:block;" /></div>
+      <p class="ac-eyebrow">Step 1 of 6</p>
+      <h2 class="ac-title">Let's get started.</h2>
+      <p class="ac-sub">Enter your email to create your free Bella Vista account.</p>
+      <div class="ac-field">
+        <label>Email address</label>
+        <input type="email" placeholder="you@example.com" />
+      </div>
+      <button class="ac-btn-primary" onclick="acNext(2)">Continue <i class="fa-solid fa-arrow-right"></i></button>
+      <p class="ac-legal">By continuing you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="ac-step" id="ac-step-2" style="display:none">
+      <p class="ac-eyebrow">Step 2 of 6</p>
+      <h2 class="ac-title">Tell us about yourself.</h2>
+      <p class="ac-sub">We need a few details to verify your identity.</p>
+      <div class="ac-row">
+        <div class="ac-field"><label>First name</label><input type="text" placeholder="Jane" /></div>
+        <div class="ac-field"><label>Last name</label><input type="text" placeholder="Smith" /></div>
+      </div>
+      <div class="ac-field"><label>Phone number</label><input type="tel" placeholder="(555) 000-0000" /></div>
+      <div class="ac-field">
+        <label>Date of birth</label>
+        <input type="text" id="ac-dob" placeholder="MM / DD / YYYY" maxlength="14" inputmode="numeric" />
+      </div>
+      <button class="ac-btn-primary" onclick="acNext(3)">Continue <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="ac-btn-back" onclick="acNext(1)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </div>
+
+    <div class="ac-step" id="ac-step-3" style="display:none">
+      <p class="ac-eyebrow">Step 3 of 6</p>
+      <h2 class="ac-title">Your address.</h2>
+      <p class="ac-sub">We're required by law to verify your home address.</p>
+      <div class="ac-field"><label>Street address</label><input type="text" placeholder="123 Main Street" /></div>
+      <div class="ac-field"><label>Apt, suite, unit (optional)</label><input type="text" placeholder="Apt 4B" /></div>
+      <div class="ac-row">
+        <div class="ac-field"><label>City</label><input type="text" placeholder="San Francisco" /></div>
+        <div class="ac-field" style="max-width:130px">
+          <label>State</label>
+          <select class="ac-select">
+            <option value="" disabled selected>State</option>
+            <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
+            <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
+            <option>FL</option><option>GA</option><option>HI</option><option>ID</option>
+            <option>IL</option><option>IN</option><option>IA</option><option>KS</option>
+            <option>KY</option><option>LA</option><option>ME</option><option>MD</option>
+            <option>MA</option><option>MI</option><option>MN</option><option>MS</option>
+            <option>MO</option><option>MT</option><option>NE</option><option>NV</option>
+            <option>NH</option><option>NJ</option><option>NM</option><option>NY</option>
+            <option>NC</option><option>ND</option><option>OH</option><option>OK</option>
+            <option>OR</option><option>PA</option><option>RI</option><option>SC</option>
+            <option>SD</option><option>TN</option><option>TX</option><option>UT</option>
+            <option>VT</option><option>VA</option><option>WA</option><option>WV</option>
+            <option>WI</option><option>WY</option>
+          </select>
+        </div>
+        <div class="ac-field" style="max-width:120px"><label>ZIP</label><input type="text" placeholder="94102" /></div>
+      </div>
+      <button class="ac-btn-primary" onclick="acNext(4)">Continue <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="ac-btn-back" onclick="acNext(2)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </div>
+
+    <div class="ac-step" id="ac-step-4" style="display:none">
+      <p class="ac-eyebrow">Step 4 of 6</p>
+      <h2 class="ac-title">Verify your identity.</h2>
+      <p class="ac-sub">We use 256-bit encryption to keep your information safe.</p>
+      <div class="ac-secure-badge"><i class="fa-solid fa-lock"></i> Bank-grade security · FDIC insured</div>
+      <div class="ac-field"><label>Social Security Number (last 4 digits)</label><input type="text" placeholder="••••" maxlength="4" /></div>
+      <div class="ac-field"><label>Create a password</label><input type="password" placeholder="Min. 8 characters" /></div>
+      <div class="ac-field"><label>Confirm password</label><input type="password" placeholder="Re-enter password" /></div>
+      <button class="ac-btn-primary" onclick="acNext(5)">Continue <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="ac-btn-back" onclick="acNext(3)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </div>
+
+    <div class="ac-step" id="ac-step-5" style="display:none">
+      <p class="ac-eyebrow">Step 5 of 6</p>
+      <h2 class="ac-title">Choose your plan.</h2>
+      <p class="ac-sub">Start free and upgrade anytime. No commitment.</p>
+      <div class="ac-plans">
+        <label class="ac-plan ac-plan-selected" id="plan-essential">
+          <input type="radio" name="plan" value="essential" checked style="display:none" />
+          <div class="ac-plan-top">
+            <div><div class="ac-plan-name">Essential</div><div class="ac-plan-price">$0 <span>/mo</span></div></div>
+            <div class="ac-plan-check"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+          <ul class="ac-plan-features">
+            <li><i class="fa-solid fa-check"></i> Free checking account</li>
+            <li><i class="fa-solid fa-check"></i> Visa debit card</li>
+            <li><i class="fa-solid fa-check"></i> Mobile check deposit</li>
+            <li><i class="fa-solid fa-check"></i> 55K fee-free ATMs</li>
+          </ul>
+        </label>
+        <label class="ac-plan" id="plan-plus">
+          <input type="radio" name="plan" value="plus" style="display:none" />
+          <div class="ac-plan-top">
+            <div><div class="ac-plan-badge">Most popular</div><div class="ac-plan-name">Plus</div><div class="ac-plan-price">$9 <span>/mo</span></div></div>
+            <div class="ac-plan-check"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+          <ul class="ac-plan-features">
+            <li><i class="fa-solid fa-check"></i> Everything in Essential</li>
+            <li><i class="fa-solid fa-check"></i> 4.8% APY savings vaults</li>
+            <li><i class="fa-solid fa-check"></i> Zero FX fees</li>
+            <li><i class="fa-solid fa-check"></i> 2% cash back</li>
+          </ul>
+        </label>
+      </div>
+      <button class="ac-btn-primary" onclick="acNext(6)">Continue <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="ac-btn-back" onclick="acNext(4)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </div>
+
+    <div class="ac-step" id="ac-step-6" style="display:none">
+      <p class="ac-eyebrow">Step 6 of 6</p>
+      <h2 class="ac-title">Fund your account.</h2>
+      <p class="ac-sub">Add money now or skip — you can always fund later from the app.</p>
+      <div class="ac-fund-options">
+        <div class="ac-fund-option ac-fund-selected" id="fund-transfer" onclick="acSelectFund(this)">
+          <i class="fa-solid fa-building-columns"></i>
+          <div><div class="ac-fund-name">Bank transfer</div><div class="ac-fund-desc">Link your existing bank via Plaid</div></div>
+        </div>
+        <div class="ac-fund-option" id="fund-debit" onclick="acSelectFund(this)">
+          <i class="fa-solid fa-credit-card"></i>
+          <div><div class="ac-fund-name">Debit card</div><div class="ac-fund-desc">Instant transfer, up to $500</div></div>
+        </div>
+        <div class="ac-fund-option" id="fund-skip" onclick="acSelectFund(this)">
+          <i class="fa-solid fa-clock"></i>
+          <div><div class="ac-fund-name">Fund later</div><div class="ac-fund-desc">Set up direct deposit or transfer later</div></div>
+        </div>
+      </div>
+      <button class="ac-btn-primary" onclick="acNext(7)">Open my account <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="ac-btn-back" onclick="acNext(5)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </div>
+
+    <div class="ac-step ac-step-success" id="ac-step-7" style="display:none">
+      <div class="ac-success-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h2 class="ac-title">You're all set!</h2>
+      <p class="ac-sub">Welcome to Bella Vista Bank. Your account is ready — your debit card is on the way and will arrive in 5–7 business days.</p>
+      <div class="ac-success-details">
+        <div class="ac-success-row"><i class="fa-solid fa-credit-card"></i> Visa debit card — arriving in 5–7 days</div>
+        <div class="ac-success-row"><i class="fa-solid fa-mobile-screen-button"></i> Download the app to get started</div>
+        <div class="ac-success-row"><i class="fa-solid fa-shield-halved"></i> FDIC insured up to $250,000</div>
+      </div>
+      <button class="ac-btn-primary" onclick="window.location.href='account.html'">Go to my account</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function acOpen() {
+    document.getElementById('account-modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    acUpdateProgress(1);
+  }
+  function acClose() {
+    document.getElementById('account-modal').style.display = 'none';
+    document.body.style.overflow = '';
+    acNext(1);
+  }
+  function acNext(step) {
+    document.querySelectorAll('.ac-step').forEach(s => s.style.display = 'none');
+    document.getElementById('ac-step-' + step).style.display = 'block';
+    acUpdateProgress(step);
+    document.querySelector('.ac-modal').scrollTop = 0;
+  }
+  function acUpdateProgress(step) {
+    const pct = step === 7 ? 100 : ((step - 1) / 6) * 100;
+    document.getElementById('ac-progress-bar').style.width = pct + '%';
+  }
+  document.querySelectorAll('.ac-plan').forEach(plan => {
+    plan.addEventListener('click', function() {
+      document.querySelectorAll('.ac-plan').forEach(p => p.classList.remove('ac-plan-selected'));
+      this.classList.add('ac-plan-selected');
+    });
+  });
+  function acSelectFund(el) {
+    document.querySelectorAll('.ac-fund-option').forEach(f => f.classList.remove('ac-fund-selected'));
+    el.classList.add('ac-fund-selected');
+  }
+  document.getElementById('account-modal').addEventListener('click', function(e) {
+    if (e.target === this) acClose();
+  });
+  document.getElementById('ac-dob').addEventListener('input', function() {
+    let val = this.value.replace(/\D/g, '');
+    let out = '';
+    if (val.length > 0) out = val.substring(0, 2);
+    if (val.length >= 3) out += ' / ' + val.substring(2, 4);
+    if (val.length >= 5) out += ' / ' + val.substring(4, 8);
+    this.value = out;
+  });
+</script>
+
 </body>
 </html>

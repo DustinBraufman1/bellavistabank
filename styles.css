@@ -1,5 +1,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 :root {
   --black: #1c1c1c;
   --red: #e83636;
@@ -19,6 +24,9 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
 }
+body.fade-in {
+  animation: pageFadeIn 0.35s ease both;
+}
 
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
@@ -32,11 +40,14 @@ nav {
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0;
   background: rgba(255,255,255,0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
+}
+.nav-links {
+  flex: 1;
 }
 
 .nav-logo {
@@ -53,13 +64,14 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
   list-style: none;
+  margin-left: 24px;
 }
 
 .nav-links a {
   color: rgba(28,28,28,0.6);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   transition: color 0.2s;
 }
@@ -70,6 +82,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: auto;
 }
 
 .btn {
@@ -1263,10 +1276,21 @@ footer {
   box-shadow: 0 24px 80px rgba(0,0,0,0.2);
 }
 
+.ac-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.ac-progress {
+  flex: 1;
+  height: 3px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
 .ac-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -1280,14 +1304,6 @@ footer {
   justify-content: center;
 }
 .ac-close:hover { background: var(--border); }
-
-.ac-progress {
-  height: 3px;
-  background: var(--gray);
-  border-radius: 99px;
-  margin-bottom: 0px;
-  overflow: hidden;
-}
 .ac-progress-bar {
   height: 100%;
   background: var(--red);
@@ -1347,6 +1363,24 @@ footer {
   width: 100%;
 }
 .ac-field input:focus { border-color: var(--red); }
+.ac-select {
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  background: var(--white);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+.ac-select:focus { border-color: var(--red); }
 
 .ac-row {
   display: flex;
